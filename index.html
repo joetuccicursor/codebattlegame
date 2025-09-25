@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Battle Game - Cursor vs AI Bosses</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="game-container">
+        <!-- Game Header -->
+        <div class="game-header">
+            <h1 class="game-title">CODE BATTLE</h1>
+            <div class="game-stats">
+                <div class="stat">LEVEL: <span id="current-level">1</span></div>
+                <div class="stat">BOSS: <span id="current-boss">Copilot</span></div>
+                <div class="stat">OFFICE: <span id="current-office">Microsoft</span></div>
+            </div>
+        </div>
+
+        <!-- Battle Messages (moved outside of battle area) -->
+        <div class="battle-messages" id="battle-messages">
+            <div class="message-line">
+                <div class="cursor-text">>> Cursor encounters Copilot in the Microsoft office!</div>
+            </div>
+            <div class="message-line">
+                <div class="system-text">Loading battle sequence...</div>
+            </div>
+        </div>
+
+        <!-- Battle Area -->
+        <div class="battle-area">
+            <div class="office-background" id="office-background">
+                <div class="office-details">
+                    <div class="desk"></div>
+                    <div class="computer"></div>
+                </div>
+            </div>
+
+            <!-- Characters -->
+            <div class="characters">
+                <!-- Cursor (Player) -->
+                <div class="character player" id="player">
+                    <div class="character-svg-container cursor-character">
+                        <img src="cursor_character.svg" alt="Cursor Character" class="character-svg">
+                    </div>
+                    <div class="character-name">CURSOR</div>
+                    <div class="health-bar player-health">
+                        <div class="health-fill" style="width: 100%"></div>
+                    </div>
+                    <div class="health-text" id="player-health">100/100</div>
+                </div>
+
+                <!-- Boss -->
+                <div class="character boss" id="boss">
+                    <div class="character-svg-container boss-character" id="boss-svg-container">
+                        <img src="copilot_character.svg" alt="Boss Character" class="character-svg boss-svg" id="boss-svg">
+                    </div>
+                    <div class="character-name" id="boss-name">COPILOT</div>
+                    <div class="health-bar boss-health">
+                        <div class="health-fill" style="width: 100%" id="boss-health-fill"></div>
+                    </div>
+                    <div class="health-text" id="boss-health">100/100</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Battle Controls -->
+        <div class="battle-controls" id="battle-controls">
+            <div class="controls-title">CHOOSE YOUR ATTACK:</div>
+            <div class="attack-buttons">
+                <button class="attack-btn" data-attack="tab-tab-tab">
+                    <span class="attack-name">Tab Tab Tab</span>
+                    <span class="attack-desc">Rapid key-stroke attacks</span>
+                </button>
+                <button class="attack-btn" data-attack="cmd-knockout">
+                    <span class="attack-name">Cmd Knockout</span>
+                    <span class="attack-desc">Terminal command punch</span>
+                </button>
+                <button class="attack-btn" data-attack="bug-battler">
+                    <span class="attack-name">BugBattler</span>
+                    <span class="attack-desc">Code debugger swarm</span>
+                </button>
+                <button class="attack-btn" data-attack="agentic-assault">
+                    <span class="attack-name">Agentic Assault</span>
+                    <span class="attack-desc">AI agent martini strike</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Game Over Screen (Hidden initially) -->
+        <div class="game-over-screen" id="game-over-screen" style="display: none;">
+            <div class="game-over-content">
+                <h2 id="game-over-title">VICTORY!</h2>
+                <div class="game-over-message" id="game-over-message"></div>
+                <div class="continue-prompt" id="continue-prompt">
+                    <span>Press ENTER to continue...</span>
+                    <button class="continue-btn" id="continue-btn">NEXT LEVEL</button>
+                </div>
+                <button class="restart-btn" id="restart-btn">RESTART GAME</button>
+            </div>
+        </div>
+
+        <!-- Victory Screen (Hidden initially) -->
+        <div class="victory-screen" id="victory-screen" style="display: none;">
+            <div class="victory-content">
+                <h2 class="victory-title">🏆 VICTORY! 🏆</h2>
+                <div class="victory-message">Cursor has defeated all AI bosses!</div>
+                <div class="victory-stats">
+                    <div>Final Level: 4</div>
+                    <div>Bosses Defeated: 4</div>
+                    <div>Code Mastery: 100%</div>
+                </div>
+                <button class="play-again-btn" id="play-again-btn">PLAY AGAIN</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
